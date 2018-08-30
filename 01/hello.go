@@ -10,5 +10,4 @@ func main2() {
 
 func main() {
 	fmt.Println("this is the main func")
-	main2()
 }
