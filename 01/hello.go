@@ -5,7 +5,7 @@ import (
 )
 
 func main2() {
-	fmt.Println("this is me")
+	fmt.Println("this is me2")
 }
 
 func main() {
