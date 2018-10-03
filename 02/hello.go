@@ -8,6 +8,7 @@ import (
 	"regexp"
 )
 
+
 func main() {
 	var name string
 	g.StringVar(&name, "nm", "a fake person", "this is the name")
@@ -21,4 +22,15 @@ func main() {
 
 	r := regexp.MustCompile(`^@?\w{1,15}$`)
 	f.Println(r.MatchString(os.Args[2]))
+	f.Println(tmp([]int{100,200,300}...))
+}
+
+
+func tmp(x ...int) int {
+	var y int
+	f.Println(x)
+	for _, i := range x {
+		y += i
+	}
+	return y
 }
