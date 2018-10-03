@@ -4,6 +4,7 @@ import (
 	f "fmt"
 	g "flag"
 	"os"
+	"strconv"
 )
 
 func main() {
@@ -15,4 +16,5 @@ func main() {
 	for _, i := range os.Args {
 		f.Println(i)
 	}
+	f.Println(func() int {x, _ := strconv.Atoi(os.Args[1]); return x}() +1)
 }
