@@ -33,6 +33,33 @@ func main() {
 	xx := 3
 	f.Println(xx)
 
+	mymap := map[int]int{1:2, 3:4}
+	f.Println(len(mymap))
+	changeMap(mymap)
+	f.Println(len(mymap))
+
+	map2 := make(map[int]string)
+	f.Println(map2)
+
+	x1 := struct { x int; y string } {y:"hello"}
+	f.Println(x1)
+
+	var t1 myType
+	t1.assign()
+	f.Println(t1)
+}
+
+type myType struct {
+	x int
+	y string
+}
+
+func (t *myType) assign() {
+	t.x = 100
+	t.y = "Hello world"
+}
+func changeMap(x map[int]int) {
+	x[3] = 5
 }
 
 func changeArray(a []int) { // since slice is a reference, value is changed without needing pointer
