@@ -5,6 +5,7 @@ import (
 	g "flag"
 	"os"
 	"strconv"
+	"regexp"
 )
 
 func main() {
@@ -17,4 +18,7 @@ func main() {
 		f.Println(i)
 	}
 	f.Println(func() int {x, _ := strconv.Atoi(os.Args[1]); return x}() +1)
+
+	r := regexp.MustCompile(`^@?\w{1,15}$`)
+	f.Println(r.MatchString(os.Args[2]))
 }
