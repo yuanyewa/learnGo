@@ -1,7 +1,8 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
+	"strconv"
 )
 
 func add1(x int) int {
@@ -28,6 +29,23 @@ func vara(x ...int) {
 	}
 	fmt.Println(s)
 }
+
+func fA() func() int {
+    i := 0
+    return func() int {
+        i++
+        return i
+    }
+}
+
+func ffA() (ffB func (string) int){
+	ffB = func(x string) int {
+		v, _ := strconv.Atoi(x)
+		return v
+	}
+	return
+}
+
 func main() {
 	var c func (int) int
 	c = add1 // variable as function
@@ -45,4 +63,10 @@ func main() {
 	sls[0] = 1000
 	p() // note here, printed [0] is 1000, meanning function p has access to sls parameter through it's constructing function. p is not fixed by the time it's created.
 	vara([]int{3,4,5}...) // varadic function: in definition: var ...Type; when call: slice...
+	fB := fA()
+	fmt.Println(fB())
+	fmt.Println(fB())
+
+	ffB := ffA()
+	fmt.Println(ffB("30000"))
 }
